@@ -1,4 +1,4 @@
-# BE_assignment_AN
+# BE_assignment
 ---
 
 ### ScraperService - will scrap and save data from webpage to db
