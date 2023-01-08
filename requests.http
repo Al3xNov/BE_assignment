@@ -1,0 +1,41 @@
+POST https://localhost:7092/api/ExchangeScraper HTTP/1.1
+
+{
+    "Urls":["https://finance.yahoo.com/currencies"],
+    "WrapperPattern":"//body/div//div/section//table/tbody/tr",
+    "TargetKeyPattern":"/td[2]",
+    "TargetKeyAttribute":"",
+    "TargetValuePattern":"/td[3]/fin-streamer",
+    "TargetValueAttribute":"value",
+    "TargetFilter":["EUR/USD","EUR/JPY","EUR/GBP"]
+}
+
+###
+
+POST https://localhost:7092/api/ExchangeScraper HTTP/1.1
+
+{
+    "Urls":["https://www.bloomberg.com/markets/currencies"],
+    "WrapperPattern":"//body//div/main/div/div//table/tbody/tr",
+    "TargetKeyPattern":"./th//div[@data-type='full']",
+    "TargetKeyAttribute":"",
+    "TargetValuePattern":"./td[@data-type='value']",
+    "TargetValueAttribute":"",
+    "TargetFilter":["EUR-USD","EUR-JPY","EUR-GBP"]
+}
+
+###
+
+POST https://localhost:7092/api/ExchangeScraper HTTP/1.1
+
+{
+    "Urls":["https://www.bloomberg.com/markets/currencies"],
+    "WrapperPattern":"//body//main/div",
+    "TargetKeyPattern":".//span[@data-test='instrument-price-last']",
+    "TargetKeyAttribute":"",
+    "TargetValuePattern":".//span[@data-test='instrument-price-last']",
+    "TargetValueAttribute":"",
+    "TargetFilter":["EUR-USD","EUR-JPY","EUR-GBP"]
+}
+
+/html/body//main/div//span[@data-test='instrument-price-last']
